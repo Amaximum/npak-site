@@ -160,7 +160,7 @@ export const locationMap = Object.fromEntries(
   locationProfiles.map((profile) => [profile.slug, profile])
 );
 
-export const legacyRedirects = locationProfiles.map((profile) => ({
+export const legacyRewrites = locationProfiles.map((profile) => ({
   source: `/${profile.legacySlug}`,
   destination: `/deck-builder/${profile.slug}`,
 }));
