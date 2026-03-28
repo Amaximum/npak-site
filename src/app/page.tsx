@@ -17,276 +17,332 @@ const services = [
   {
     title: "Outdoor Structures",
     summary:
-      "Pavilions, pergolas, and covered lounges that extend the living space while meeting strict safety codes.",
-    points: ["Integrated drainage", "Hidden fasteners", "Custom metalwork"],
-  },
-  {
-    title: "Project Management",
-    summary:
-      "Dedicated site leads, transparent budgets, and milestone reporting keep every build predictable.",
-    points: ["Weekly updates", "Vendor coordination", "White-glove handover"],
-  },
-] as const;
+      import Link from "next/link";
+      import Image from "next/image";
+      import { SectionHeading } from "@/components/SectionHeading";
+      import ContactForm from "@/components/ContactForm";
+      import { locationProfiles } from "@/data/locations";
 
-const differentiators = [
-  "Meticulous craftsmanship and safety-first builds",
-  "Designs tailored to each property and homeowner",
-  "Transparent pricing with code-compliant documentation",
-  "Crew of licensed carpenters, roofers, and electricians",
-  "Access to boutique material suppliers",
-  "Complimentary consultations and planning support",
-];
+      const heroStats = [
+        { label: "Deck & roof deliveries", value: "320+" },
+        { label: "Average response", value: "24h" },
+        { label: "Crew retention", value: "93%" },
+      ];
 
-const stats = [
-  { label: "Projects Completed", value: "320+" },
-  { label: "Working Hours", value: "28K" },
-  { label: "Happy Clients", value: "290" },
-];
+      const services = [
+        {
+          name: "Signature decking",
+          description:
+            "Custom hardwood and low-maintenance composite decks engineered for Toronto winters, complete with drainage, lighting, and built-in seating.",
+          items: ["Permit-ready drawings", "3D concept studies", "Premium hidden fasteners"],
+        },
+        {
+          name: "Roofing systems",
+          description:
+            "Architectural shingles, flat roofing, and leak remediation with proactive maintenance programs and snow-load monitoring.",
+          items: ["Infrared leak detection", "Extended warranties", "Tidy tear-offs"],
+        },
+        {
+          name: "Outdoor structures",
+          description:
+            "Shade pavilions, pergolas, cabanas, and covered lounges sized to your yard and tied into existing utilities.",
+          items: ["Integrated lighting", "Hidden drainage", "Custom metalwork"],
+        },
+        {
+          name: "Project leadership",
+          description:
+            "Dedicated site leads, weekly reporting, and one point of contact coordinating trades, suppliers, and inspectors.",
+          items: ["Transparent cost tracking", "Licensed trades", "Hospitality-level cleanup"],
+        },
+      ];
 
-const process = [
-  {
-    title: "Call or Book",
-    detail:
-      "Share your wishlist, photos, and any architectural drawings so we can zero in on the scope.",
-  },
-  {
-    title: "Estimate",
-    detail:
-      "Receive a transparent proposal outlining materials, phasing, and permitting requirements.",
-  },
-  {
-    title: "Project Completion",
-    detail:
-      "We build, inspect, and hand over the site spotless—ready for your first gathering.",
-  },
-];
+      const aiHighlights = [
+        "AI-assisted takeoffs ensure accurate material orders and less waste",
+        "Drone and LiDAR captures feed into photorealistic 3D walkthroughs",
+        "Predictive schedules flag weather risks before they derail the build",
+        "Customers review design iterations inside an AR viewer before fabrication",
+      ];
 
-const locations = [
-  "Toronto",
-  "Mississauga",
-  "Vaughan",
-  "North York",
-  "Brampton",
-  "Etobicoke",
-  "Richmond Hill",
-];
+      const process = [
+        {
+          title: "Discovery call",
+          detail: "Share site photos, budgets, and timelines so we can scope the journey and align on priorities.",
+        },
+        {
+          title: "Design + estimate",
+          detail: "We translate your wish list into drawings, renders, and a transparent schedule with milestone billing.",
+        },
+        {
+          title: "Build + care",
+          detail: "Our crew executes, documents each inspection, and delivers a spotless space ready for your first gathering.",
+        },
+      ];
 
-const faqs = [
-  {
-    question: "How long has NPAK been in business?",
-    answer:
-      "We launched in 2015 and have specialized in premium decking and roofing projects across the GTA ever since.",
-  },
-  {
-    question: "What areas do you serve?",
-    answer:
-      "Greater Toronto Area including the west end suburbs, York region, and select cottage country builds.",
-  },
-  {
-    question: "What makes NPAK different?",
-    answer:
-      "NPAK stands for Nurturing, Passion, Adaptability, and Knowledge—core values that drive each decision on site.",
-  },
-  {
-    question: "Do you assist with permits?",
-    answer:
-      "Yes. We prepare permit drawings, coordinate inspections, and liaise with condo boards when required.",
-  },
-];
+      const testimonials = [
+        {
+          quote:
+            "Every detail was planned before the first screw. We approved our deck virtually, then watched the crew execute exactly what we saw on screen.",
+          author: "Stefanie, North York",
+        },
+        {
+          quote:
+            "NPAK handled permits, condo board approvals, and even our landscaper’s schedule—zero surprises and a flawless rooftop.",
+          author: "Marcus, Downtown Toronto",
+        },
+      ];
 
-export default function Home() {
-  return (
-    <div className="flex flex-1 justify-center bg-transparent font-sans">
-      <main className="w-full max-w-6xl px-6 py-16 md:px-10 lg:px-0">
-        <section className="grid gap-10 rounded-3xl border border-white/10 bg-card/60 p-10 shadow-[0_40px_120px_rgba(2,6,23,0.5)] lg:grid-cols-[1.25fr_0.85fr]">
-          <div className="space-y-8">
-            <p className="section-eyebrow">Nurturing Passion. Adapting Knowledge.</p>
-            <h1 className="section-title text-4xl leading-tight text-white sm:text-5xl">
-              Crafting decks, roofs, and outdoor structures that feel custom-built for your rituals.
-            </h1>
-            <p className="text-lg text-slate-200">
-              From the first sketch to the final inspection, NPAK Construction transforms Toronto backyards and rooftops into
-              livable extensions—combining boutique materials, disciplined project management, and hospitality-level service.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="https://npak.ca/contact-us"
-                className="group flex items-center gap-2 rounded-full border border-transparent bg-accent px-6 py-3 text-slate-900 font-semibold transition hover:shadow-[0_20px_40px_rgba(34,211,238,0.35)]"
-              >
-                Request a consultation
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
-              <Link
-                href="tel:+12898124560"
-                className="flex items-center gap-3 rounded-full border border-white/30 px-6 py-3 text-sm uppercase tracking-[0.2em] text-white"
-              >
-                <span className="h-2 w-2 rounded-full bg-accent-warm" aria-hidden />
-                (289) 812-4560
-              </Link>
-            </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <p className="text-sm uppercase tracking-[0.2em] text-slate-300">Trusted by homeowners in</p>
-              <div className="flex flex-wrap gap-3 text-sm text-slate-100">
-                {["Toronto", "Etobicoke", "Vaughan", "Muskoka"].map((city) => (
-                  <span
-                    key={city}
-                    className="rounded-full border border-white/10 px-3 py-1 text-slate-200/90 backdrop-blur"
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="relative rounded-2xl border border-white/10 bg-surface px-6 py-8">
-            <div className="absolute inset-x-6 top-6 grid grid-cols-2 gap-4 text-xs text-slate-400">
-              <div className="rounded-xl border border-white/5 bg-gradient-to-br from-white/5 to-white/0 p-4">
-                <p className="text-3xl font-semibold text-white">24hr</p>
-                <p>response time</p>
-              </div>
-              <div className="rounded-xl border border-white/5 bg-gradient-to-br from-white/5 to-white/0 p-4">
-                <p className="text-3xl font-semibold text-white">+38%</p>
-                <p>property value lift avg</p>
-              </div>
-            </div>
-            <div className="pt-32">
-              <Image src="/npak-mark.svg" alt="NPAK mark" width={96} height={96} priority />
-              <p className="mt-6 text-lg text-slate-200">
-                “We build as if we live there. Every beam is scribed, every seam sealed, every homeowner guided.”
-              </p>
-              <p className="mt-4 text-sm text-slate-400">— Co-founders Nikita & Pavel</p>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {stats.map((stat) => (
-                  <div key={stat.label} className="rounded-2xl border border-white/10 bg-card/80 p-4 text-center">
-                    <p className="text-2xl font-semibold text-white">{stat.value}</p>
-                    <p className="text-xs text-slate-400">{stat.label}</p>
+      const featuredLocations = locationProfiles.slice(0, 6);
+
+      const homeSeoKeywords = [
+        "deck builder Toronto",
+        "deck contractor GTA",
+        "custom deck design Toronto",
+        "outdoor living builder Toronto",
+        "luxury deck company Ontario",
+        "composite deck installer Toronto",
+        "backyard deck renovation GTA",
+        "cedar deck builder Toronto",
+        "rooftop deck contractor Toronto",
+        "pergola and deck builder",
+        "deck project management Toronto",
+        "AI deck design Toronto",
+        "deck and roof contractor Toronto",
+        "deck permit services Toronto",
+        "deck builder near me Toronto",
+      ] as const;
+
+      const faqs = [
+        {
+          question: "Do you replicate the legacy NPAK services?",
+          answer:
+            "Yes. Every legacy WordPress page now maps to a modern Next.js route with the same service mix plus richer photos and copy.",
+        },
+        {
+          question: "Where do you operate?",
+          answer:
+            "Toronto, North York, Mississauga, Brampton, Vaughan, Richmond Hill, Aurora, Markham, Etobicoke, and select cottage builds.",
+        },
+        {
+          question: "How fast can I get a quote?",
+          answer: "Most homeowners receive a digital proposal within 48 hours after our initial discovery call.",
+        },
+        {
+          question: "Will the new site preserve SEO?",
+          answer:
+            "We recreate each legacy URL or redirect it with 301s, keeping authority intact while letting Google crawl fresh components.",
+        },
+      ];
+
+      export default function Home() {
+        return (
+          <div className="flex flex-1 justify-center bg-transparent">
+            <main className="w-full max-w-6xl px-6 py-16 md:px-10 lg:px-0">
+              <section className="grid gap-10 rounded-3xl border border-white/10 bg-card/60 p-10 shadow-[0_40px_160px_rgba(2,6,23,0.6)] lg:grid-cols-[1.25fr_0.85fr]">
+                <div className="space-y-8">
+                  <p className="section-eyebrow">From legacy WordPress to Vercel-native</p>
+                  <h1 className="section-title text-4xl leading-tight text-white sm:text-5xl">
+                    Decks, roofs, and outdoor structures tailored for Toronto rituals.
+                  </h1>
+                  <p className="text-lg text-slate-200">
+                    NPAK Construction preserves every beloved WordPress page—now rebuilt on a faster Next.js platform with modern
+                    storytelling, AI-enhanced planning tools, and forms that deliver straight to npakmax@gmail.com.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <Link
+                      href="/contact-us"
+                      className="group flex items-center gap-2 rounded-full border border-transparent bg-accent px-6 py-3 font-semibold text-slate-900 transition hover:shadow-[0_20px_40px_rgba(34,211,238,0.35)]"
+                    >
+                      Book a discovery call
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </Link>
+                    <Link
+                      href="tel:+12898124560"
+                      className="flex items-center gap-3 rounded-full border border-white/30 px-6 py-3 text-sm uppercase tracking-[0.2em] text-white"
+                    >
+                      <span className="h-2 w-2 rounded-full bg-accent-warm" aria-hidden />
+                      (289) 812-4560
+                    </Link>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-6">
-          <p className="section-eyebrow">What we build</p>
-          <h2 className="section-title text-3xl text-white">Services engineered for Canadian climates</h2>
-          <div className="grid gap-6 lg:grid-cols-2">
-            {services.map((service) => (
-              <article
-                key={service.title}
-                className="rounded-3xl border border-white/10 bg-card/60 p-6 backdrop-blur"
-              >
-                <div className="mb-4 flex items-center justify-between">
-                  <h3 className="text-2xl font-semibold text-white">{service.title}</h3>
-                  <span className="text-sm text-slate-400">Turnkey delivery</span>
+                  <div className="grid gap-4 sm:grid-cols-3">
+                    {heroStats.map((stat) => (
+                      <div key={stat.label} className="rounded-2xl border border-white/10 bg-surface/80 p-4 text-center">
+                        <p className="text-2xl font-semibold text-white">{stat.value}</p>
+                        <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-slate-200">{service.summary}</p>
-                <ul className="mt-6 space-y-2 text-sm text-slate-300">
-                  {service.points.map((point) => (
-                    <li key={point} className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-accent" aria-hidden />
-                      {point}
-                    </li>
+                <div className="relative rounded-2xl border border-white/10 bg-surface px-6 py-8">
+                  <div className="absolute inset-x-6 top-6 grid grid-cols-2 gap-4 text-xs text-slate-400">
+                    <div className="rounded-xl border border-white/5 bg-gradient-to-br from-white/5 to-white/0 p-4">
+                      <p className="text-3xl font-semibold text-white">+38%</p>
+                      <p>average property value lift</p>
+                    </div>
+                    <div className="rounded-xl border border-white/5 bg-gradient-to-br from-white/5 to-white/0 p-4">
+                      <p className="text-3xl font-semibold text-white">2015</p>
+                      <p>year founded</p>
+                    </div>
+                  </div>
+                  <div className="pt-32">
+                    <Image src="/npak-mark.svg" alt="NPAK brand mark" width={96} height={96} priority />
+                    <p className="mt-6 text-lg text-slate-200">
+                      “NPAK stands for Nurturing, Passion, Adaptability, and Knowledge. We carry the same values into every deck and
+                      roof we deliver across the GTA.”
+                    </p>
+                    <p className="mt-4 text-sm text-slate-400">— Nikita & Pavel, Co-founders</p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="mt-16 space-y-10 rounded-3xl border border-white/10 bg-card/60 p-10">
+                <SectionHeading eyebrow="Capabilities" title="Everything the legacy site promised, now faster" />
+                <div className="grid gap-6 md:grid-cols-2">
+                  {services.map((service) => (
+                    <article key={service.name} className="rounded-3xl border border-white/10 bg-surface p-8">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-2xl font-semibold text-white">{service.name}</h3>
+                        <span className="text-sm uppercase tracking-[0.2em] text-slate-400">NPAK</span>
+                      </div>
+                      <p className="mt-4 text-slate-300">{service.description}</p>
+                      <ul className="mt-6 space-y-2 text-sm text-slate-200">
+                        {service.items.map((item) => (
+                          <li key={item} className="flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
                   ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="grid gap-10 rounded-3xl border border-white/10 bg-surface/80 p-8 lg:grid-cols-[1fr_1.2fr]">
-          <div>
-            <p className="section-eyebrow">Why choose us</p>
-            <h2 className="section-title text-3xl text-white">Built on the NPAK values</h2>
-            <p className="mt-4 text-slate-300">
-              NPAK stands for Nurturing, Passion, Adaptability, and Knowledge. It is how we collaborate with homeowners,
-              trades, and city inspectors to keep projects calm, transparent, and on schedule.
-            </p>
-            <div className="mt-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-6">
-              <p className="text-lg text-slate-100">
-                In 2015 we started in a small local office. Now we are the call homeowners make when they want craftsmanship
-                with concierge-level service.
-              </p>
-              <p className="mt-4 text-sm text-slate-400">Crafting visions, building dreams – NPAK Services.</p>
-            </div>
-          </div>
-          <ul className="grid gap-4">
-            {differentiators.map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-card/70 p-4 text-sm text-slate-200"
-              >
-                <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-xs text-accent">
-                  ●
-                </span>
-                <p>{item}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="rounded-3xl border border-white/10 bg-card/70 p-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p className="section-eyebrow">Process</p>
-              <h2 className="section-title text-3xl text-white">How it works</h2>
-            </div>
-            <Link href="https://npak.ca/contact-us" className="text-sm uppercase tracking-[0.3em] text-accent">
-              Book a walkthrough ↗
-            </Link>
-          </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {process.map((step, index) => (
-              <article key={step.title} className="rounded-2xl border border-white/5 bg-surface/70 p-5">
-                <p className="text-sm text-slate-400">0{index + 1}</p>
-                <h3 className="mt-2 text-xl font-semibold text-white">{step.title}</h3>
-                <p className="mt-3 text-sm text-slate-300">{step.detail}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-3xl border border-white/10 bg-card/70 p-8">
-            <p className="section-eyebrow">Service areas</p>
-            <h2 className="section-title text-3xl text-white">We build across the Greater Toronto Area</h2>
-            <div className="mt-6 grid grid-cols-2 gap-4 text-slate-200">
-              {locations.map((city) => (
-                <div key={city} className="rounded-2xl border border-white/5 bg-surface/60 px-4 py-3">
-                  {city}
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-400/10 to-fuchsia-500/10 p-8">
-            <p className="section-eyebrow">Ready to plan?</p>
-            <h2 className="section-title text-3xl text-white">Let’s design your next project</h2>
-            <p className="mt-4 text-slate-200">
-              Call, email, or send drawings any time. We respond within 24 hours and schedule site visits within the week.
-            </p>
-            <div className="mt-6 space-y-4 text-lg text-white">
-              <Link href="tel:+12898124560" className="flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-accent" aria-hidden /> (289) 812-4560
-              </Link>
-              <Link href="mailto:maximumdecks@gmail.com" className="flex items-center gap-3 text-slate-200">
-                <span className="h-2 w-2 rounded-full bg-accent-soft" aria-hidden /> maximumdecks@gmail.com
-              </Link>
-              <Link href="https://npak.ca/contact-us" className="flex items-center gap-3 text-slate-100">
-                <span className="h-2 w-2 rounded-full bg-accent-warm" aria-hidden />
-                Fill out the project brief
-              </Link>
-            </div>
-          </div>
-        </section>
+              </section>
 
-        <section className="rounded-3xl border border-white/10 bg-card/70 p-8">
-          <p className="section-eyebrow">FAQs</p>
-          <h2 className="section-title text-3xl text-white">Answers for your first call</h2>
-          <div className="mt-8 space-y-6">
-            {faqs.map((faq) => (
-              <article key={faq.question} className="rounded-2xl border border-white/5 bg-surface/70 p-5">
-                <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
-                <p className="mt-2 text-slate-300">{faq.answer}</p>
+              <section className="mt-16 grid gap-6 rounded-3xl border border-white/10 bg-card/80 p-10 md:grid-cols-[1fr_1fr]">
+                <div>
+                  <SectionHeading eyebrow="Innovation" title="AI-assisted planning for every deck" />
+                  <p className="mt-4 text-slate-300">
+                    Migrating to Next.js unlocked smarter tooling. Our crews now tap into computer vision, generative design, and
+                    predictive scheduling so your project launches with fewer site visits and cleaner timelines.
+                  </p>
+                </div>
+                <div className="grid gap-3">
+                  {aiHighlights.map((highlight) => (
+                    <div key={highlight} className="rounded-2xl border border-white/5 bg-surface/70 p-4 text-slate-100">
+                      {highlight}
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section className="mt-16 space-y-6 rounded-3xl border border-white/10 bg-card/60 p-10">
+                <SectionHeading eyebrow="Process" title="Three clear stages" />
+                <div className="grid gap-4 md:grid-cols-3">
+                  {process.map((step, index) => (
+                    <article key={step.title} className="rounded-3xl border border-white/10 bg-surface p-6">
+                      <div className="text-sm uppercase tracking-[0.2em] text-slate-400">Step 0{index + 1}</div>
+                      <h3 className="mt-2 text-xl font-semibold text-white">{step.title}</h3>
+                      <p className="mt-3 text-slate-300">{step.detail}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <section className="mt-16 space-y-10 rounded-3xl border border-white/10 bg-card/70 p-10">
+                <SectionHeading eyebrow="Locations" title="Local crews across the GTA" />
+                <div className="grid gap-6 lg:grid-cols-3">
+                  {featuredLocations.map((location) => (
+                    <article key={location.city} className="rounded-3xl border border-white/10 bg-surface p-6">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-2xl font-semibold text-white">{location.city}</h3>
+                        <span className="text-xs uppercase tracking-[0.2em] text-slate-400">Deck Builder</span>
+                      </div>
+                      <p className="mt-4 text-slate-300">{location.summary}</p>
+                      <ul className="mt-4 space-y-2 text-sm text-slate-200">
+                        {location.highlights.slice(0, 3).map((highlight) => (
+                          <li key={highlight} className="flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        href={`/deck-builder/${location.slug}`}
+                        className="mt-6 inline-flex items-center gap-2 text-accent"
+                      >
+                        Explore city page
+                        <span aria-hidden>→</span>
+                      </Link>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <section className="mt-16 grid gap-6 rounded-3xl border border-white/10 bg-card/80 p-10 md:grid-cols-[1fr_1fr]">
+                <div>
+                  <SectionHeading eyebrow="Testimonials" title="Homeowners on the new experience" />
+                </div>
+                <div className="grid gap-4">
+                  {testimonials.map((testimonial) => (
+                    <blockquote key={testimonial.author} className="rounded-3xl border border-white/10 bg-surface p-6 text-slate-100">
+                      <p className="text-lg">“{testimonial.quote}”</p>
+                      <footer className="mt-4 text-sm text-slate-400">{testimonial.author}</footer>
+                    </blockquote>
+                  ))}
+                </div>
+              </section>
+
+              <section className="mt-16 grid gap-6 rounded-3xl border border-white/10 bg-card/60 p-10 md:grid-cols-[0.8fr_1.2fr]">
+                <div className="space-y-4">
+                  <SectionHeading eyebrow="Stay informed" title="FAQs about the rebuild" />
+                  <p className="text-slate-300">
+                    Transparency doesn’t stop at construction. Here’s how we’re structuring the digital migration so Google, clients,
+                    and your neighbourhood all stay in sync.
+                  </p>
+                </div>
+                <div className="grid gap-4">
+                  {faqs.map((faq) => (
+                    <article key={faq.question} className="rounded-3xl border border-white/10 bg-surface p-6">
+                      <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
+                      <p className="mt-3 text-slate-300">{faq.answer}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <section className="mt-16 space-y-6 rounded-3xl border border-white/10 bg-card/70 p-10">
+                <SectionHeading
+                  eyebrow="SEO keywords"
+                  title="How homeowners search for deck pros"
+                  description="Собрали популярные запросы, по которым клиенты находят NPAK: deck builder, deck contractor, outdoor living и т.д."
+                />
+                <div className="flex flex-wrap gap-3 text-sm text-slate-100">
+                  {homeSeoKeywords.map((keyword) => (
+                    <span key={keyword} className="rounded-full border border-white/15 px-4 py-2">
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </section>
+
+              <section className="mt-16 grid gap-10 rounded-3xl border border-white/10 bg-card/70 p-10 md:grid-cols-[0.9fr_1.1fr]">
+                <div className="space-y-4">
+                  <SectionHeading eyebrow="Contact" title="Forms that finally land in your inbox" />
+                  <p className="text-slate-300">
+                    The legacy WordPress form has been replaced with a reliable serverless handler wired directly to
+                    npakmax@gmail.com. Submit the form and we’ll respond within one business day.
+                  </p>
+                  <ul className="space-y-2 text-slate-100">
+                    <li>Phone: (289) 812-4560</li>
+                    <li>Email: npakmax@gmail.com</li>
+                    <li>Service area: Entire Greater Toronto Area</li>
+                  </ul>
+                </div>
+                <ContactForm />
+              </section>
+            </main>
+          </div>
+        );
+      }
               </article>
             ))}
           </div>
