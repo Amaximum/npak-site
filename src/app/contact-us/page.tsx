@@ -65,7 +65,7 @@ export default function ContactPage() {
           <SectionHeading
             eyebrow="SEO keywords"
             title="Popular contact searches"
-            description="Включаем 15 ключевых фраз про связь с deck builder, чтобы форма легче находилась в выдаче."
+            description="We include 15 deck builder contact phrases so this form is easy to find in search."
           />
           <div className="flex flex-wrap gap-3 text-sm text-slate-100">
             {contactSeoKeywords.map((keyword) => (

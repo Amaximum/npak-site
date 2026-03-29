@@ -103,7 +103,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="SEO keywords"
             title="Why homeowners search for NPAK"
-            description="15 ключевых фраз из тематики deck builder отражают наш опыт и усиливают видимость страницы."
+            description="15 core deck builder phrases capture our expertise and strengthen this page's visibility."
           />
           <div className="flex flex-wrap gap-3 text-sm text-slate-100">
             {aboutSeoKeywords.map((keyword) => (

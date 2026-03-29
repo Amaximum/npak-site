@@ -76,7 +76,7 @@ export default function DeckBuilderLanding() {
           <SectionHeading
             eyebrow="SEO keywords"
             title="Top deck builder searches"
-            description="Собрали 15 ключевых запросов по теме deck builder, чтобы этот хаб ранжировался вместе с городскими страницами."
+            description="We pulled 15 deck builder keywords so this hub ranks alongside every city page."
           />
           <div className="flex flex-wrap gap-3 text-sm text-slate-100">
             {deckBuilderSeoKeywords.map((keyword) => (

@@ -64,8 +64,8 @@ export default function LocationsPage() {
         <section className="space-y-6 rounded-3xl border border-white/10 bg-card/60 p-10">
           <SectionHeading
             eyebrow="SEO keywords"
-            title="Как ищут региональные команды"
-            description="Каждая фраза—распространённый запрос по теме deck builder в GTA, помогающий выдаче."
+            title="How people search for our regional crews"
+            description="Each phrase is a common GTA deck builder query that boosts discoverability."
           />
           <div className="flex flex-wrap gap-3 text-sm text-slate-100">
             {locationsSeoKeywords.map((keyword) => (

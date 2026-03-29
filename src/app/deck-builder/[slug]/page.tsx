@@ -6,15 +6,16 @@ import ContactForm from "@/components/ContactForm";
 import { locationProfiles, locationMap } from "@/data/locations";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
   return locationProfiles.map((profile) => ({ slug: profile.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const profile = locationMap[params.slug];
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const profile = locationMap[slug];
   if (!profile) {
     return {
       title: "Deck Builder | NPAK Construction",
@@ -27,8 +28,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function DeckBuilderCityPage({ params }: PageProps) {
-  const profile = locationMap[params.slug];
+export default async function DeckBuilderCityPage({ params }: PageProps) {
+  const { slug } = await params;
+  const profile = locationMap[slug];
   if (!profile) {
     notFound();
   }
@@ -90,8 +92,8 @@ export default function DeckBuilderCityPage({ params }: PageProps) {
         <section className="space-y-6 rounded-3xl border border-white/10 bg-card/60 p-10">
           <SectionHeading
             eyebrow="SEO keywords"
-            title="Как ищут deck builder в {profile.city}"
-            description="15 ключевых запросов с упоминанием города усиливают локальное ранжирование."
+            title={`How homeowners search for deck builders in ${profile.city}`}
+            description="15 localized queries reinforce each city's SEO footprint."
           />
           <div className="flex flex-wrap gap-3 text-sm text-slate-100">
             {citySeoKeywords.map((keyword) => (
@@ -110,7 +112,7 @@ export default function DeckBuilderCityPage({ params }: PageProps) {
               description="Submit details and reference this city page—our inbox at npakmax@gmail.com routes requests within 24 hours."
             />
             <p className="text-slate-300">
-              Prefer a call? Dial (289) 812-4560 and mention you are in {profile.city}.
+              {`Prefer a call? Dial (289) 812-4560 and mention you are in ${profile.city}.`}
             </p>
           </div>
           <ContactForm />

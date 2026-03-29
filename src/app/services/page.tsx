@@ -127,7 +127,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="SEO keywords"
             title="Deck builder services homeowners Google"
-            description="Вставили 15 ключей по теме deck builder services, чтобы усилить SEO каждой секции."
+            description="These 15 service-related keywords support the SEO of every section on this page."
           />
           <div className="flex flex-wrap gap-3 text-sm text-slate-100">
             {serviceSeoKeywords.map((keyword) => (

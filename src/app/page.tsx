@@ -291,7 +291,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="SEO keywords"
             title="How homeowners search for deck pros"
-            description="Собрали популярные запросы, по которым клиенты находят NPAK: deck builder, deck contractor, outdoor living и т.д."
+            description="We rounded up the everyday search terms people use to find NPAK: deck builder, deck contractor, outdoor living, and more."
           />
           <div className="flex flex-wrap gap-3 text-sm text-slate-100">
             {homeSeoKeywords.map((keyword) => (
